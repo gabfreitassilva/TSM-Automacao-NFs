@@ -1,0 +1,11 @@
+1 - abrir o navegador
+
+2 - abrir o site https://www.meudanfe.com.br/#
+
+3 - digitar a chave de acesso
+
+4 - clicar em "buscar"
+
+5 - baixar o xml
+
+6 - baixar a danfe
