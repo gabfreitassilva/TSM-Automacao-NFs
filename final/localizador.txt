@@ -1,0 +1,6 @@
+status=1
+digitar_url=Point(x=291, y=60)
+chave_acesso=Point(x=568, y=296)
+botao_buscar=0
+baixar_xml=0
+baixar_danfe=0
