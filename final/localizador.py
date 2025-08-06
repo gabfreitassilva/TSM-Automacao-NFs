@@ -76,7 +76,7 @@ if config['status'] == '0':
 
     config['baixar_xml'] = tuple(pyautogui.position()) ; double_beep()
     pyautogui.click(config['baixar_xml'])
-    sleep(5)
+    sleep(10)
 
     pyautogui.click(config['botao_buscar'])
     winsound.Beep(1500, 200)
@@ -94,8 +94,9 @@ if config['status'] == '0':
             arquivo.write(f"{chave}={valor}\n")
 
     pyautogui.hotkey('alt', 'f4')
-    exit("Localizador executado com sucesso. Todas as informações foram salvas.")
+    print("Posições obtidas! Programa finalizado.")
     sleep(5)
+    exit()
 
 pyautogui.press("win")
 pyautogui.write("chrome")
@@ -126,7 +127,6 @@ for chave in chaves:
     pyautogui.click(config['baixar_danfe'])
 
     if chave == chaves[len(chaves)-1]:
-        double_beep()
         pyautogui.hotkey("alt", "f4")
 
 downloads = os.path.join(os.path.expanduser('~'), 'Downloads')
@@ -142,4 +142,6 @@ with open("chaves.txt", 'r') as arquivo_chaves:
         shutil.move(caminho_pdf, destino)
         shutil.move(caminho_xml, destino)
 
+double_beep()
+print("NFs baixadas e movidas. Programa finalizado!")
 sleep(5)
