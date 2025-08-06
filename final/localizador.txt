@@ -1,6 +1,6 @@
 status=1
-digitar_url=(266, 56)
-chave_acesso=(248, 404)
-botao_buscar=(630, 395)
-baixar_xml=(361, 373)
-baixar_danfe=(497, 327)
+digitar_url=(293, 71)
+chave_acesso=(186, 400)
+botao_buscar=(601, 398)
+baixar_xml=(390, 368)
+baixar_danfe=(523, 317)

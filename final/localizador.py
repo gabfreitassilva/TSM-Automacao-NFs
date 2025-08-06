@@ -30,7 +30,7 @@ def double_beep():
 
 # Tenta carregar o arquivo existente
 try:
-    with open("final/localizador.txt", 'r') as arquivo:
+    with open("localizador.txt", 'r') as arquivo:
         for linha in arquivo:
             if '=' in linha:
                 chave, valor = linha.strip().split('=', 1)
@@ -80,7 +80,7 @@ if config['status'] == '0':
 
     pyautogui.click(config['botao_buscar'])
     winsound.Beep(1500, 200)
-    sleep(5)
+    sleep(10)
     
     config['baixar_danfe'] = tuple(pyautogui.position()) ; double_beep()
     pyautogui.click(config['baixar_danfe'])
@@ -89,12 +89,13 @@ if config['status'] == '0':
     config['status'] = '1'
     
     # Salva TODOS os valores no arquivo (incluindo o novo status)
-    with open("final/localizador.txt", 'w') as arquivo:
+    with open("localizador.txt", 'w') as arquivo:
         for chave, valor in config.items():
             arquivo.write(f"{chave}={valor}\n")
 
     pyautogui.hotkey('alt', 'f4')
-    exit("Localizador finalizado!")
+    exit("Localizador executado com sucesso. Todas as informações foram salvas.")
+    sleep(5)
 
 pyautogui.press("win")
 pyautogui.write("chrome")
@@ -114,13 +115,13 @@ for chave in chaves:
     pyautogui.write(chave)
 
     pyautogui.click(config['botao_buscar'])
-    sleep(5) # Espera carregar a página para baixar XML
+    sleep(10) # Espera carregar a página para baixar XML
 
     pyautogui.click(config['baixar_xml'])
-    sleep(5) # Espera carregar o retorno para a página de busca
+    sleep(10) # Espera carregar o retorno para a página de busca
 
     pyautogui.click(config['botao_buscar'])
-    sleep(5) # Espera carregar a página para baixar DANFE
+    sleep(10) # Espera carregar a página para baixar DANFE
 
     pyautogui.click(config['baixar_danfe'])
 
@@ -135,6 +136,10 @@ os.makedirs(destino, exist_ok=True)
 with open("chaves.txt", 'r') as arquivo_chaves:
     for linha in arquivo_chaves:
         pdf_file = f"NFE-{linha.replace('\n', '')}.pdf"
+        xml_file = f"NFE-{linha.replace('\n', '')}.xml"
         caminho_pdf = os.path.join(downloads, pdf_file)
+        caminho_xml = os.path.join(downloads, xml_file)
         shutil.move(caminho_pdf, destino)
+        shutil.move(caminho_xml, destino)
 
+sleep(5)
