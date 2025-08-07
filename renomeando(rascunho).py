@@ -5,6 +5,7 @@ from datetime import datetime
 import re
 import unicodedata
 
+
 # Configurações de pastas
 downloads = os.path.join(os.path.expanduser('~'), 'Downloads')
 destino = os.path.join(downloads, 'NFs_Renomeadas')
